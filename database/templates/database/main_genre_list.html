@@ -1,0 +1,19 @@
+{% extends 'database/base.html' %}
+
+{% block title %}Thunder Games - Main genres{% endblock %}
+
+{% block body %}
+
+<h1>Main genres</h1>
+{% if all_main_genres %}
+  <h2>List of all main genres</h2>
+  <ul>
+      {% for maingenre in all_main_genres %}
+      <li><a href="{% url 'database:main-genre' maingenre.id %}">{{ maingenre.name }}</a></li>
+      {% endfor %}
+  </ul>
+{% else %}
+  <p>There are no main genres.</p>
+{% endif %}
+
+{% endblock %}

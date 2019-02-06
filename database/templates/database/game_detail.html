@@ -1,0 +1,13 @@
+{% extends 'database/base.html' %}
+
+{% block title %}Thunder Games - {{ game.name }}{% endblock %}
+
+{% block body %}
+
+  <h1>{{game.name}}</h1>
+
+  <p>Information on the game</p>
+  <p>Name: <b>{{ game.name }}</b>.</p>
+  <p>Game ID: <b>{{ game.pk }}</b>.</p>
+
+{% endblock %}

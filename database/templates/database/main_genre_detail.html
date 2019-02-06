@@ -1,0 +1,13 @@
+{% extends 'database/base.html' %}
+
+{% block title %}Thunder Games - {{ maingenre.name }}{% endblock %}
+
+{% block body %}
+
+  <h1>{{maingenre.name}}</h1>
+
+  <p>Information on the main genre</p>
+  <p>Name: <b>{{ maingenre.name }}</b>.</p>
+  <p>Main genre ID: <b>{{ maingenre.pk }}</b>.</p>
+
+{% endblock %}

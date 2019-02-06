@@ -1,0 +1,41 @@
+{% extends 'database/base.html' %}
+{% block title %}Thunder Games - Games{% endblock %}
+
+{% block body %}
+
+  <h1>Index page</h1>
+
+  {% if all_games %}
+    <h2>List of all games</h2>
+    <ul>
+        {% for game in all_games %}
+        <li><a href="{% url 'database:game' game.id %}">{{ game.name }}</a></li>
+        {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no games.</p>
+  {% endif %}
+
+  {% if all_main_genres %}
+    <h2>List of all main genres</h2>
+    <ul>
+        {% for maingenre in all_main_genres %}
+        <li><a href="{% url 'database:main-genre' maingenre.id %}">{{ maingenre.name }}</a></li>
+        {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no main genres.</p>
+  {% endif %}
+
+  {% if all_subgenres %}
+    <h2>List of all subgenres</h2>
+    <ul>
+        {% for subgenre in all_subgenres %}
+        <li><a href="{% url 'database:subgenre' subgenre.id %}">{{ subgenre.name }}</a></li>
+        {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no subgenres.</p>
+  {% endif %}
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'database/base.html' %}
+
+{% block title %}Thunder Games - {{ subgenre.name }}{% endblock %}
+
+{% block body %}
+
+  <h1>{{subgenre.name}}</h1>
+
+  <p>Information on the subgenre</p>
+  <p>Name: <b>{{ subgenre.name }}</b>.</p>
+  <p>Subgenre ID: <b>{{ subgenre.pk }}</b>.</p>
+
+{% endblock %}

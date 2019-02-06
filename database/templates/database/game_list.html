@@ -1,0 +1,18 @@
+{% extends 'database/base.html' %}
+{% block title %}Thunder Games - Games{% endblock %}
+
+{% block body %}
+
+<h1>Games</h1>
+{% if all_games %}
+  <h2>List of all games</h2>
+  <ul>
+      {% for game in all_games %}
+      <li><a href="{% url 'database:game' game.id %}">{{ game.name }}</a></li>
+      {% endfor %}
+  </ul>
+{% else %}
+  <p>There are no games.</p>
+{% endif %}
+
+{% endblock %}

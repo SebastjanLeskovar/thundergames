@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Thunder Games{% endblock %}</title>
+  </head>
+  <body>
+    <ul>
+      <li><a href="{% url 'database:index' %}">Home</a></li>
+      <li><a href="{% url 'database:games' %}">Games</a></li>
+      <li><a href="{% url 'database:main-genres' %}">Main genres</a></li>
+      <li><a href="{% url 'database:subgenres' %}">Subgenres</a></li>
+    </ul>
+  </body>
+</html>
+
+
+{% block body %}
+{% endblock %}

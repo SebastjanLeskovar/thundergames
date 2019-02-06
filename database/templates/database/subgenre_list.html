@@ -1,0 +1,19 @@
+{% extends 'database/base.html' %}
+
+{% block title %}Thunder Games - Subgenres{% endblock %}
+
+{% block body %}
+
+<h1>Subgenres</h1>
+{% if all_subgenres %}
+  <h2>List of all subgenres</h2>
+  <ul>
+      {% for subgenre in all_subgenres %}
+      <li><a href="{% url 'database:subgenre' subgenre.id %}">{{ subgenre.name }}</a></li>
+      {% endfor %}
+  </ul>
+{% else %}
+  <p>There are no subgenres.</p>
+{% endif %}
+
+{% endblock %}
