@@ -1,0 +1,14 @@
+{% extends 'database/base.html' %}
+{% block title %}Thunder Games - Add subgenre{% endblock %}
+
+{% block body %}
+
+  <h1>Add a new subgenre</h1>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Add subgenre">
+  </form>
+
+{% endblock %}

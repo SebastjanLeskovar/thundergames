@@ -1,10 +1,10 @@
 {% extends 'database/base.html' %}
-
 {% block title %}Thunder Games - Subgenres{% endblock %}
 
 {% block body %}
 
 <h1>Subgenres</h1>
+<a href="{% url 'database:add-subgenre' %}">Add a new subgenre</a>
 {% if all_subgenres %}
   <h2>List of all subgenres</h2>
   <ul>

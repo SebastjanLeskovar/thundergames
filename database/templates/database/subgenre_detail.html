@@ -10,4 +10,7 @@
   <p>Name: <b>{{ subgenre.name }}</b>.</p>
   <p>Subgenre ID: <b>{{ subgenre.pk }}</b>.</p>
 
+  <a href="{% url 'database:edit-subgenre' subgenre.pk %}"><button>Edit</button></a>
+  <a href="{% url 'database:delete-subgenre' subgenre.pk %}"><button>Delete</button></a>
+
 {% endblock %}

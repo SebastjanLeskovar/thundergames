@@ -64,14 +64,18 @@ Additional features to me implemented are listed in Versioning.
 
 ## Versioning
 
-###
+### TBD
 
 - API
+- Import main genres and subgenres from one of official lists.
+- Include some of the classic games.
 
 ### V4.0
 
 - User authentication (register and login forms).
-- Ability for the user to add, edit and delete his or her own items.
+
+### V3.1
+- Ability to add images.
 
 ### V3.0
 
@@ -79,12 +83,7 @@ Additional features to me implemented are listed in Versioning.
 
 ### V2.0
 
-- Import main genres and subgenres from one of official lists.
-- Include some of the classic games.
-
-### V1.1
-
-- Ability to add images.
+- Ability for the user to add, edit and delete his or her own items.
 
 ### V1.0
 

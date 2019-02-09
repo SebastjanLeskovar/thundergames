@@ -1,9 +1,15 @@
 {% extends 'database/base.html' %}
-{% block title %}Thunder Games - Games{% endblock %}
+{% block title %}Thunder Games - Home{% endblock %}
 
 {% block body %}
 
   <h1>Index page</h1>
+
+  <ul>
+    <li><a href="{% url 'database:add-game' %}">Add game</a></li>
+    <li><a href="{% url 'database:add-main-genre' %}">Add main genre</a></li>
+    <li><a href="{% url 'database:add-subgenre' %}">Add subgenre</a></li>
+  </ul>
 
   {% if all_games %}
     <h2>List of all games</h2>

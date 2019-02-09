@@ -9,5 +9,11 @@
   <p>Information on the game</p>
   <p>Name: <b>{{ game.name }}</b>.</p>
   <p>Game ID: <b>{{ game.pk }}</b>.</p>
+  <p>Main genre: <b>{{ game.main_genre }}.</b>.</p>
+  <p>Subgenre: <b>{{ game.subgenres }}.</b></p>
+  <!-- FIXME_: Sebastjan_07.02.2019: The HTML output is currently "Subgenre: database.SubGenre.None.." Please corrent this. -->
+
+  <a href="{% url 'database:edit-game' game.pk %}"><button>Edit</button></a>
+  <a href="{% url 'database:delete-game' game.pk %}"><button>Delete</button></a>
 
 {% endblock %}

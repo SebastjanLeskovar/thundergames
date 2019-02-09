@@ -1,9 +1,12 @@
-from django.views import generic
+from django.views.generic import ListView, DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 from .models import MainGenre, SubGenre, Game
 
+### Index ###
 
-class IndexView(generic.ListView):
+class IndexView(ListView):
     """Return the Index page."""
     context_object_name = ''
     template_name = 'database/index.html'
@@ -17,7 +20,9 @@ class IndexView(generic.ListView):
         return context
 
 
-class GameListView(generic.ListView):
+### Game ###
+
+class GameListView(ListView):
     """Return a list of all Game objects."""
     template_name = 'database/game_list.html'
     context_object_name = 'all_games'
@@ -26,13 +31,33 @@ class GameListView(generic.ListView):
         return Game.objects.all()
 
 
-class GameDetailView(generic.DetailView):
+class GameDetailView(DetailView):
     """Return a datail page of the specific Game object."""
     model = Game
     template_name = 'database/game_detail.html'
 
 
-class MainGenreListView(generic.ListView):
+class GameAddView(CreateView):
+    """Create a new Game object."""
+    model = Game
+    fields = ['name', 'main_genre', 'subgenres', 'image']
+    template_name_suffix = '_add'
+
+
+class GameEditView(UpdateView):
+    model = Game
+    fields = ['name', 'main_genre', 'subgenres', 'image']
+    template_name_suffix = '_edit'
+
+
+class GameDeleteView(DeleteView):
+    model = Game
+    success_url = reverse_lazy('database:list-game')
+
+
+### Main genre ###
+
+class MainGenreListView(ListView):
     """Return a list of all MainGenre objects."""
     template_name = 'database/main_genre_list.html'
     context_object_name = 'all_main_genres'
@@ -41,13 +66,33 @@ class MainGenreListView(generic.ListView):
         return MainGenre.objects.all()
 
 
-class MainGenreDetailView(generic.DetailView):
+class MainGenreDetailView(DetailView):
     """Return a datail page of the specific MainGenre object."""
     model = MainGenre
     template_name = 'database/main_genre_detail.html'
 
 
-class SubgenreListView(generic.ListView):
+class MainGenreAddView(CreateView):
+    """Create a new MainGenre object."""
+    model = MainGenre
+    fields = ['name', 'image']
+    template_name_suffix = '_add'
+
+
+class MainGenreEditView(UpdateView):
+    model = MainGenre
+    fields = ['name', 'image']
+    template_name_suffix = '_edit'
+
+
+class MainGenreDeleteView(DeleteView):
+    model = MainGenre
+    success_url = reverse_lazy('database:list-main-genre')
+
+
+### Subgenre ###
+
+class SubgenreListView(ListView):
     """Return a list of all SubGenre objects."""
     template_name = 'database/subgenre_list.html'
     context_object_name = 'all_subgenres'
@@ -56,7 +101,25 @@ class SubgenreListView(generic.ListView):
         return SubGenre.objects.all()
 
 
-class SubgenreDetailView(generic.DetailView):
+class SubgenreDetailView(DetailView):
     """Return a datail page of the specific Subgenre object."""
     model = SubGenre
     template_name = 'database/subgenre_detail.html'
+
+
+class SubgenreAddView(CreateView):
+    """Create a new Subgenre object."""
+    model = SubGenre
+    fields = ['name', 'main_genre', 'image']
+    template_name_suffix = '_add'
+
+
+class SubgenreEditView(UpdateView):
+    model = SubGenre
+    fields = ['name', 'main_genre', 'image']
+    template_name_suffix = '_edit'
+
+
+class SubgenreDeleteView(DeleteView):
+    model = SubGenre
+    success_url = reverse_lazy('database:list-subgenre')

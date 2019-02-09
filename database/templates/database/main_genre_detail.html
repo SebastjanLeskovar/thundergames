@@ -10,4 +10,8 @@
   <p>Name: <b>{{ maingenre.name }}</b>.</p>
   <p>Main genre ID: <b>{{ maingenre.pk }}</b>.</p>
 
+  <a href="{% url 'database:edit-main-genre' maingenre.pk %}"><button>Edit</button></a>
+  <a href="{% url 'database:delete-main-genre' maingenre.pk %}"><button>Delete</button></a>
+  <!-- FIXME: MainGenre objects cannot be deleted. The following error is raised: "ValueError at /main-genre/9/delete/". -->
+
 {% endblock %}

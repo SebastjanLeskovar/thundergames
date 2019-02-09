@@ -4,6 +4,7 @@
 {% block body %}
 
 <h1>Games</h1>
+<a href="{% url 'database:add-game' %}">Add a new game</a>
 {% if all_games %}
   <h2>List of all games</h2>
   <ul>
