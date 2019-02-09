@@ -1,11 +1,12 @@
 {% extends 'database/base.html' %}
 {% block title %}Thunder Games - Add main genre{% endblock %}
+{% block main_genre_active %}active{% endblock %}
 
 {% block body %}
 
   <h1>Add a new main genre</h1>
 
-  <form action="" method="post">
+  <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Add main genre">

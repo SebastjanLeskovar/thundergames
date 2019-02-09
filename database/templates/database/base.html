@@ -1,19 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset = "utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}Thunder Games{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel = "stylesheet" href="{% static 'database/darkly.css' %}">
   </head>
   <body>
-    <ul>
-      <li><a href="{% url 'database:index' %}">Home</a></li>
-      <li><a href="{% url 'database:list-game' %}">Games</a></li>
-      <li><a href="{% url 'database:list-main-genre' %}">Main genres</a></li>
-      <li><a href="{% url 'database:list-subgenre' %}">Subgenres</a></li>
-    </ul>
+
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+      <a class="navbar-brand" href="{% url 'database:index' %}">Thunder Games</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item {% block index_active %}{% endblock %}">
+            <a class="nav-link" href="{% url 'database:index' %}">Home</a>
+          </li>
+          <li class="nav-item {% block game_active %}{% endblock %}">
+            <a class="nav-link" href="{% url 'database:list-game' %}">Games</a>
+          </li>
+          <li class="nav-item {% block main_genre_active %}{% endblock %}">
+            <a class="nav-link" href="{% url 'database:list-main-genre' %}">Main genres</a>
+          </li>
+          <li class="nav-item {% block subgenre_active %}{% endblock %}">
+            <a class="nav-link" href="{% url 'database:list-subgenre' %}">Subgenres</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+  <div class="container">
+    {% block body %}
+    {% endblock %}
+  </div>
+
   </body>
 </html>
-
-
-{% block body %}
-{% endblock %}
