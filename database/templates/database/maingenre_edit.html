@@ -1,9 +1,10 @@
 {% extends 'database/base.html' %}
 {% block title %}Thunder Games - Edit main genre{% endblock %}
+{% block main_genre_active %}active{% endblock %}
 
 {% block body %}
 
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Save">
