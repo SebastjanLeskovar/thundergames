@@ -1,46 +1,59 @@
 # Thunder Games
-A website for all your favourite video games.
+A website for all your favourite :video_game: video games  :video_game:.
 
 Start of project: 4 February 2019.  
 Initial push: 4 February 2019.
 
 Sebastjan Leskovar | [sebastjan.leskovar@gmail.com](mailto:sebastjan.leskovar@gmail.com) | [github.com/SebastjanLeskovar](https://github.com/SebastjanLeskovar)
 
-Link to repository/website: https://github.com/SebastjanLeskovar/thundergames
+Link to repository: [https://github.com/SebastjanLeskovar/thundergames](https://github.com/SebastjanLeskovar/thundergames)  
+Link to website: [thundergames.pythonanywhere.com](thundergames.pythonanywhere.com)
+
 
 ## Getting Started
 
 ### Prerequisites
 
-As of version V1.0, the following prerequisites are necessary to run this website:
+As of version V4.5, the following prerequisites are necessary to run this website:
 - Python 3.7
 - Django 2.1.5
 - Pillow 5.4.1
+- Django Registration 3.0
+- Django REST Framework 3.9.1
 
 Previous versions of listed software has not been tested.  
-Please check the file requirements.txt for a full list of prerequisites.
+Please check the file *requirements.txt* a full list of prerequisites.
 
 ### Installation
 
-1. Save the file 'thundergames-master.zip' to your PC.
+1. Open the app repository at [github.com/SebastjanLeskovar/thundergames](https://github.com/SebastjanLeskovar/thundergames).
 
-2. Extract the files.
+2. Save the file 'thundergames-master.zip' to your PC by clicking the green button *Clone or download* and then *Download ZIP*.
 
-Now you are able to inspect the source code.
+3. Extract the files.
+
+You can now inspect the source code.
 
 ### Start the website on localhost
 
-3. Use the <b>Command Prompt</b> to navigate to the root of the unziped folder (e.g., cd \thundergames-master).
+1. Use the <b>Command Prompt</b> to navigate to the root of the unziped folder (e.g., *cd \thundergames-master*).
 
-4. Activate the enclosed virtual environment with Django pre-installed by entering:
+2. Install all the required prerequisites from *requirements.txt* with the following command:
 ```bash
-venv\Scripts\activate
+pip install -r requirements.txt
 ```
+Using virtual environment is advised.
 
-5. Start the Django built-in server with:
+3. Start the Django built-in server with:
 ```bash
 python manage.py runserver
 ```
+
+4. You will receive an error message saying "You have 16 unapplied migration(s)." Do not worry, you can easily apply the migrations with the following command:
+```bash
+python manage.py migrate
+```
+You can now safely start the app again with ```python manage.py runserver```.
 
 ### How to use
 
@@ -50,25 +63,37 @@ python manage.py runserver
 
 ## App
 
-For now, This website lists games, main genres and subgenres. In future versions, users will be able to add their own items and edit and delete them. They will be able to create own lists.
+### Basic functionality
+
+This website lists games, main genres and subgenres. Users are able to add their own items and edit and delete them.
 
 The Main menu contains four buttons:
-- Home (links to homepage)
-- Games (opens a list of all games)
-- Main genres (opens a list of all main genres)
-- Subgenres (opens a list of all subgenres)
+- **Home** (links to homepage)
+- **Games** (opens a list of all games)
+- **Main genres** (opens a list of all main genres)
+- **Subgenres** (opens a list of all subgenres)
 
-On each of these lists, the items can be opened.
+On each of these lists, the items can be opened. All items are also listed on the homepage.
 
-Additional features to me implemented are listed in Versioning.
+After the visitor creates an account, another button will be visible: **API**.
+
+### Authentication
+
+Anonymous users can check the site's contents, but cannot add, edit or delete them. To do that, please register and login with your account. User authentication is also mandatory to access API endpoints.
+
+### API
+
+Details how to access API endpoints is listed on link [thundergames.pythonanywhere.com/api/](thundergames.pythonanywhere.com/api/).
 
 ## Versioning
 
 ### TBD
 
-- API
 - Import main genres and subgenres from one of official lists.
-- Include some of the classic games.
+
+### V4.5
+
+- API (GET endpoints).
 
 ### V4.0
 

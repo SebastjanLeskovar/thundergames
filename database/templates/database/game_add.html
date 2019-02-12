@@ -6,6 +6,8 @@
 
   <h1>Add a new game</h1>
 
+  {% include 'database/adding_instructions.html' %}
+
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}

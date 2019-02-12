@@ -4,15 +4,27 @@
 
 {% block body %}
 
-  <h1>{{maingenre.name}}</h1>
+  <h1>{{ maingenre.name }}</h1>
 
-  <p>Information on the main genre</p>
-  <p>Name: <b>{{ maingenre.name }}</b>.</p>
-  <p>Main genre ID: <b>{{ maingenre.pk }}</b>.</p>
-  <p><img src="{{ maingenre.image.url }}" alt="[{{ maingenre.name }}_image]" class="img-responsive"></p>
+  <div class="row">
 
-  <a href="{% url 'database:edit-main-genre' maingenre.pk %}"><button>Edit</button></a>
-  <a href="{% url 'database:delete-main-genre' maingenre.pk %}"><button>Delete</button></a>
-  <!-- FIXME: MainGenre objects cannot be deleted. The following error is raised: "ValueError at /main-genre/9/delete/". -->
+    <div class="col-sm-6">
+      <h4>Basic information</h4>
+      <p>Name: <b>{{ maingenre.name }}</b>.</p>
+      <p>Main genre ID: <b>{{ maingenre.pk }}</b>.</p>
+    </div>
+    <div class="col-sm-6">
+      {% if maingenre.image %}
+        <p><img src="{{ maingenre.image.url }}" class="img-responsive"></p>
+      {% else %}
+        No image found. Please add one <a href="{% url 'database:edit-main-genre' game.pk %}">here</a>.
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- TODO: Add a list of all games under this genre. -->
+
+  <a href="{% url 'database:edit-main-genre' maingenre.pk %}"><button type="button" class="btn btn-primary">Edit</button></a>
+  <a href="{% url 'database:delete-main-genre' maingenre.pk %}"><button type="button" class="btn btn-primary">Delete</button></a>
 
 {% endblock %}

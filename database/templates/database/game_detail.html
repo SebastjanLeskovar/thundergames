@@ -4,19 +4,37 @@
 
 {% block body %}
 
-  <h1>{{game.name}}</h1>
+  <h1>{{ game.name }}</h1>
 
-  <p>Information on the game</p>
-  <p>Name: <b>{{ game.name }}</b>.</p>
-  <p>Game ID: <b>{{ game.pk }}</b>.</p>
-  <p>Main genre: <b>{{ game.main_genre }}.</b>.</p>
-  <p>Subgenre: <b>{{ game.subgenres }}.</b></p>
-  <!-- <p>Image: <b>{{ game.image }}.</b></p>
-  <p>Image URL: <b>{{ game.image.url }}.</b></p> -->
-  <p><img src="{{ game.image.url }}" alt="[{{ game.name }}_image]" class="img-responsive"></p>
-  <!-- FIXME_: Sebastjan_07.02.2019: The HTML output is currently "Subgenre: database.SubGenre.None.." Please corrent this. -->
+  <div class="row">
+    <div class="col-sm-6">
+      <h4>Basic information</h4>
+      <p>Name: <b>{{ game.name }}</b>.</p>
+      <p>Game ID: <b>{{ game.pk }}</b>.</p>
+      <p>Main genre: <b>{{ game.main_genre }}.</b>.</p>
 
-  <a href="{% url 'database:edit-game' game.pk %}"><button>Edit</button></a>
-  <a href="{% url 'database:delete-game' game.pk %}"><button>Delete</button></a>
+      {% if game.subgenres %}
+      <p>Subgenres:</p>
+      <ul>
+        {% for subgenre in game.subgenres.all %}
+        <li>{{ subgenre }}
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p>No subgenres found. You can add some <a href="{% url 'database:edit-game' game.pk %}">here</a>.</p>
+        {% endif %}
+    </div>
+    <div class="col-sm-6">
+      <h4>Game cover</h4>
+      {% if game.image %}
+      <p><img src="{{ game.image.url }}" class="img-responsive"></p>
+      {% else %}
+      No image found. Please add one <a href="{% url 'database:edit-game' game.pk %}">here</a>.
+      {% endif %}
+    </div>
+  </div>
+
+  <a href="{% url 'database:edit-game' game.pk %}"><button type="button" class="btn btn-primary">Edit</button></a>
+  <a href="{% url 'database:delete-game' game.pk %}"><button type="button" class="btn btn-primary">Delete</button></a>
 
 {% endblock %}

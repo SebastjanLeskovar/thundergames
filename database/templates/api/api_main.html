@@ -1,0 +1,22 @@
+{% extends 'database/base.html' %}
+{% block title %}Thunder Games - API{% endblock %}
+{% block api_active %}active{% endblock %}
+
+{% block body %}
+
+  <h1>API</h1>
+  <p>APIs can be accessed on the links listed below.</p>
+  <h3>Lists of objects</h3>
+  <ul>
+    <li>GET Game list: <a href="{% url 'api:api-list-game' %}"><code>thundergames.pythonanywhere.com/api/games</code></a>.</li>
+    <li>GET Main genre list: <a href="{% url 'api:api-list-main-genre' %}"><code>thundergames.pythonanywhere.com/api/main-genres</code></a>.</li>
+    <li>GET Subgenre list: <a href="{% url 'api:api-list-subgenre' %}"><code>thundergames.pythonanywhere.com/api/subgenres</code></a>.</li>
+  </ul>
+  <h3>Individual objects</h3>
+  <ul>
+    <li>GET single Game object: <code>/api/game/&lt;primary_key&gt;</code>, e.g. <a href="{% url 'api:api-game' 1 %}"><code>thundergames.pythonanywhere.com/api/game/1/</code></a>.</li>
+    <li>GET single Main genre object: <code>/api/main-genre/&lt;primary_key&gt;</code>, e.g. <a href="{% url 'api:api-main-genre' 1 %}"><code>thundergames.pythonanywhere.com/api/main-genre/1/</code></a>.</li>
+    <li>GET single Subgenre object: <code>/api/subgenre/&lt;primary_key&gt;</code>, e.g. <a href="{% url 'api:api-subgenre' 1 %}"><code>thundergames.pythonanywhere.com/api/subgenre/1/</code></a>.</li>
+  </ul>
+
+{% endblock %}

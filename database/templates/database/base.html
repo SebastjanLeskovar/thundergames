@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
   <head>
-    <meta charset = "utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Thunder Games{% endblock %}</title>
     {% load staticfiles %}
     <link rel = "stylesheet" href="{% static 'database/darkly.css' %}">
@@ -10,7 +10,7 @@
   <body>
 
     <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <nav class="navbar navbar-expand-sm navbar-light">
       <a class="navbar-brand" href="{% url 'database:index' %}">Thunder Games</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -30,6 +30,33 @@
           <li class="nav-item {% block subgenre_active %}{% endblock %}">
             <a class="nav-link" href="{% url 'database:list-subgenre' %}">Subgenres</a>
           </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item {% block api_active %}{% endblock %}">
+            <a class="nav-link" href="{% url 'database:api-main' %}">API</a>
+          {% endif %}
+          </li>
+
+        </ul>
+
+        <!-- Login/logout buttons on the right -->
+        <ul class="navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a href="{% url 'logout'%}?next={{request.path}}">
+                <button type="button" class="btn btn-secondary">Logout</button>
+              </a>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a href="{% url 'login'%}?next={{request.path}}">
+                <button type="button" class="btn btn-secondary">Login</button>
+              </a>
+            <li class="nav-item">
+              <a href="{% url 'django_registration_register' %}">
+                <button type="button" class="btn btn-secondary">Signup</button>
+              </a>
+            </li>
+          {% endif %}
         </ul>
       </div>
     </nav>

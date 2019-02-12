@@ -4,14 +4,26 @@
 
 {% block body %}
 
-  <h1>{{subgenre.name}}</h1>
+  <h1>{{ subgenre.name }}</h1>
 
-  <p>Information on the subgenre</p>
-  <p>Name: <b>{{ subgenre.name }}</b>.</p>
-  <p>Subgenre ID: <b>{{ subgenre.pk }}</b>.</p>
-  <p><img src="{{ subgenre.image }}" alt="[{{ subgenre.name }}_image]" class="img-responsive"></p>
+  <div class="row">
+    <div class="col-sm-6">
+      <h4>Basic information</h4>
+      <p>Name: <b>{{ subgenre.name }}</b>.</p>
+      <p>Main genre: <b>{{ subgenre.main_genre }}</b>.</p>
+      <p>Subgenre ID: <b>{{ subgenre.pk }}</b>.</p>
+    </div>
+    <div class="col-sm-6">
+      <h4>Subgenre cover</h4>
+      {% if subgenre.image %}
+      <p><img src="{{ subgenre.image.url }}" class="img-responsive"></p>
+      {% else %}
+      No image found. Please add one <a href="{% url 'database:edit-subgenre' subgenre.pk %}">here</a>.
+      {% endif %}
+    </div>
+  </div>
 
-  <a href="{% url 'database:edit-subgenre' subgenre.pk %}"><button>Edit</button></a>
-  <a href="{% url 'database:delete-subgenre' subgenre.pk %}"><button>Delete</button></a>
+  <a href="{% url 'database:edit-subgenre' subgenre.pk %}"><button type="button" class="btn btn-primary">Edit</button></a>
+  <a href="{% url 'database:delete-subgenre' subgenre.pk %}"><button type="button" class="btn btn-primary">Delete</button></a>
 
 {% endblock %}

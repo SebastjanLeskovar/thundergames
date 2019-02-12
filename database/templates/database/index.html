@@ -4,12 +4,20 @@
 
 {% block body %}
 
-    <h1>Index page</h1>
-    <ul>
-      <li><a href="{% url 'database:add-game' %}">Add game</a></li>
-      <li><a href="{% url 'database:add-main-genre' %}">Add main genre</a></li>
-      <li><a href="{% url 'database:add-subgenre' %}">Add subgenre</a></li>
-    </ul>
+
+    {% if user.is_authenticated %}
+      <div class="jumbotron">
+        <p class="display-4">Hello, {{ user.get_username }}!</p>
+        <p>You can add a <a href="{% url 'database:add-game' %}">new game</a>, <a href="{% url 'database:add-main-genre' %}">main genre</a> or <a href="{% url 'database:add-subgenre' %}">subgenre</a> or browse through all items below.</p>
+        <p>As a signed-in user, you also have access to <a href="{% url 'database:api-main' %}">APIs</a>.</p>
+      </div>
+    {% else %}
+
+      <div class="jumbotron">
+        <p class="display-4">Hello, visitor!</p>
+        <p>You can browse all games, main genres and subgenres below. If you would like to add or edit your own content, please login or create a new account.</p>
+      </div>
+    {% endif %}
 
     {% if all_games %}
       <h2>List of all games</h2>

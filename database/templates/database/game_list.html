@@ -5,7 +5,7 @@
 {% block body %}
 
 <h1>Games</h1>
-<a href="{% url 'database:add-game' %}">Add a new game</a>
+<p><a href="{% url 'database:add-game' %}">Add a new game</a></p>
 {% if all_games %}
   <h2>List of all games</h2>
   <ul>

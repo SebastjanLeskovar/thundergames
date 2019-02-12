@@ -7,6 +7,8 @@ app_name = 'database'
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'), # /
 
+    path('api/', views.MainAPIView.as_view(), name='api-main'),    # api/
+
     path('games/', views.GameListView.as_view(), name='list-game'), # games/
     path('game/<int:pk>/', views.GameDetailView.as_view(), name='game'), # game/1/
     # TODO: Replace the <pk> in URL with game name.
