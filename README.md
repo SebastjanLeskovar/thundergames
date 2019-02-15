@@ -55,6 +55,8 @@ python manage.py migrate
 ```
 You can now safely start the app again with ```python manage.py runserver```.
 
+Please note an internet connection is required to load CSS, JavaScript, jQuery and Popper (CDN). Without a connection, the website will work without any formatting. 
+
 ### How to use
 
 4. After starting the website, open your web browser.

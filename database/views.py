@@ -156,3 +156,9 @@ class SubgenreDeleteView(LoginRequiredMixin, DeleteView):
 
     model = Subgenre
     success_url = reverse_lazy('database:list-subgenre')
+
+
+class ContactView(LoginRequiredMixin, TemplateView):
+    """Contact information."""
+
+    template_name = 'database/contact.html'

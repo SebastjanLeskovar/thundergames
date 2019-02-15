@@ -1,0 +1,19 @@
+{% extends 'database/base.html' %}
+{% block title %}Thunder Games - {{ game.name }}{% endblock %}
+{% block contact_active %}active{% endblock %}
+
+{% block body %}
+
+  <h3>About the author</h3>
+
+    <p>This website was created by</p>
+    <ul>
+      <li>Sebastjan Leskovar</li>
+      <li>Email: <a href="mailto:sebastjan.leskovar@gmail.com">sebastjan.leskovar@gmail.com</a></li>
+      <li>GitHub: <a href="https://github.com/SebastjanLeskovar">github.com/SebastjanLeskovar</a></li>
+    </ul>
+
+  <h3>Repository</h3>
+
+    <p>The website is on GitHub, please find the source code at <a href="https://github.com/SebastjanLeskovar/thundergames">github.com/SebastjanLeskovar/thundergames</a>.</p>
+{% endblock %}

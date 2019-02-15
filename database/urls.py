@@ -31,4 +31,6 @@ urlpatterns = [
     # TODO: Replace the <pk> in URL with subgenre name.
     path('subgenre/<int:pk>/edit/', views.SubgenreEditView.as_view(), name='edit-subgenre'), # subgenre/1/edit/
     path('subgenre/<int:pk>/delete/', views.SubgenreDeleteView.as_view(), name='delete-subgenre'), # subgenre/1/delete/
+
+    path('contact/', views.ContactView.as_view(), name='contact'), # contact/
 ]
