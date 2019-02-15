@@ -55,7 +55,7 @@ python manage.py migrate
 ```
 You can now safely start the app again with ```python manage.py runserver```.
 
-Please note an internet connection is required to load CSS, JavaScript, jQuery and Popper (CDN). Without a connection, the website will work without any formatting. 
+Please note an internet connection is required to load CSS, JavaScript, jQuery and Popper (CDN). Without a connection, the website will work without any formatting.
 
 ### How to use
 
@@ -77,7 +77,7 @@ The Main menu contains four buttons:
 
 On each of these lists, the items can be opened. All items are also listed on the homepage.
 
-After the visitor creates an account, another button will be visible: **API**.
+After the visitor creates an account, two more buttons will become visible: **API** and **Contacts**.
 
 ### Authentication
 
